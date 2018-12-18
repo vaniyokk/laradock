@@ -43,6 +43,7 @@ RUN set -xe; \
     groupadd -g ${PGID} laradock && \
     useradd -u ${PUID} -g laradock -m laradock -G docker_env && \
     usermod -p "*" laradock -s /bin/bash && \
+    apt-get install -y python2.7 && \
     apt-get install -yqq \
       apt-utils \
       #
@@ -62,6 +63,7 @@ RUN set -xe; \
       # nasm
       nasm && \
       php -m | grep -q 'zip'
+
 
 #
 #--------------------------------------------------------------------------
